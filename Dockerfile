@@ -1,4 +1,4 @@
-FROM node:11-slim
+FROM node:20.5-slim
 
 # See https://crbug.com/795759
 RUN apt-get update && apt-get install -yq libgconf-2-4
