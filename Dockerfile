@@ -32,7 +32,7 @@ RUN chmod +x /usr/local/bin/dumb-init
 #     browser.launch({executablePath: 'google-chrome-unstable'})
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
-RUN yarn global add github:timoschwarzer/capture-website-cli
+RUN yarn global add https://github.com/timoschwarzer/capture-website-cli
 
 RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
     && mkdir -p /home/pptruser/Downloads \
