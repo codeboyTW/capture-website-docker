@@ -1,7 +1,7 @@
 FROM node:20.5-slim
 
 # See https://crbug.com/795759
-RUN apt-get update && apt-get install -yq libgconf-2-4
+RUN apt-get update && apt-get install -yq libgconf-2-4 gnupg2
 
 # https://linux.how2shout.com/install-google-chrome-on-debian-12-bookworm/
 RUN apt install apt-transport-https curl -y
