@@ -1,27 +1,16 @@
 FROM node:20.5-slim
 
 # See https://crbug.com/795759
-RUN apt-get update && apt-get install -yq libgconf-2-4 gnupg2
+RUN apt-get update && apt-get install -yq libgconf-2-4
 
-# Install latest chrome dev package and fonts to support major charsets (Chinese, Japanese, Arabic, Hebrew, Thai and a few others)
-# Note: this installs the necessary libs to make the bundled version of Chromium that Puppeteer
-# installs, work.
-#RUN apt-get update && apt-get install -y wget --no-install-recommends \
-#   && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
-#   && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
-#   && apt-get update \
-#   && apt-get install -y google-chrome-unstable git fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst ttf-freefont \
-#     --no-install-recommends \
-#   && rm -rf /var/lib/apt/lists/* \
-#   && apt-get purge --auto-remove -y curl \
-#   && rm -rf /src/*.deb
-
+# https://linux.how2shout.com/install-google-chrome-on-debian-12-bookworm/
 RUN apt install apt-transport-https curl -y
 RUN curl -fSsL https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor | tee /usr/share/keyrings/google-chrome.gpg >> /dev/null
 RUN echo deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main | tee /etc/apt/sources.list.d/google-chrome.list
 RUN apt update
 RUN apt install -y google-chrome-stable
 
+# https://stackoverflow.com/questions/66403248/trying-to-yarn-add-a-private-github-repo-and-get-couldnt-find-the-binary-git
 RUN apt install -y git
 
 # It's a good idea to use dumb-init to help prevent zombie chrome processes.
