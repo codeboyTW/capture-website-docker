@@ -42,6 +42,7 @@ RUN apt-get install -y libgbm-dev
 
 RUN sed -i 's/exec -a "\$0" "\$HERE\/chrome" "\$@"/exec -a "\$0" "\$HERE\/chrome" "\$@"  --no-sandbox/g' /usr/bin/google-chrome
 
+RUN cat /usr/bin/google-chrome
 
 # https://stackoverflow.com/questions/66403248/trying-to-yarn-add-a-private-github-repo-and-get-couldnt-find-the-binary-git
 RUN apt install -y git
