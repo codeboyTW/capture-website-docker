@@ -52,6 +52,8 @@ RUN apt install -y git
 #     browser.launch({executablePath: 'google-chrome-unstable'})
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
+ENV QTWEBENGINE_DISABLE_SANDBOX 1
+
 RUN yarn global add https://github.com/timoschwarzer/capture-website-cli
 
 #RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
