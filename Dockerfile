@@ -40,6 +40,9 @@ RUN apt-get install -y libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1
 
 RUN apt-get install -y libgbm-dev
 
+RUN apt-get install -y libexif
+
+
 # https://stackoverflow.com/questions/66403248/trying-to-yarn-add-a-private-github-repo-and-get-couldnt-find-the-binary-git
 RUN apt install -y git
 
@@ -51,8 +54,6 @@ RUN apt install -y git
 # you'll need to launch puppeteer with:
 #     browser.launch({executablePath: 'google-chrome-unstable'})
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
-
-ENV QTWEBENGINE_DISABLE_SANDBOX 1
 
 RUN yarn global add https://github.com/timoschwarzer/capture-website-cli
 
