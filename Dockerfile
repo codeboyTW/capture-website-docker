@@ -40,7 +40,7 @@ RUN apt-get install -y libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1
 
 RUN apt-get install -y libgbm-dev
 
-RUN sed -i 's/exec -a "\$0" "\$HERE\/chrome" "\$@"/exec -a "\$0" "\$HERE\/chrome" "\$@"  --no-sandbox/g' /usr/bin/google-chrome
+RUN sed -i 's/exec -a "\$0" "\$HERE\/chrome" "\$@"/exec -a "\$0" "\$HERE\/chrome" "\$@"  --no-sandbox --disable-setuid-sandbox/g' /usr/bin/google-chrome
 
 RUN cat /usr/bin/google-chrome
 
