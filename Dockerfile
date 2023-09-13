@@ -66,5 +66,5 @@ RUN  mkdir -p /home/pptruser/Downloads \
 
 USER pptruser
 
-CMD ["google-chrome-stable"]
+CMD ["google-chrome-unstable"]
 
