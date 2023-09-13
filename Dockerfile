@@ -1,5 +1,5 @@
 #FROM node:20.5-slim
-FROM node:19
+FROM node:18-bullseye
 
 #RUN apt-get update && apt-get install -yq gconf-service libasound2 libatk1.0-0 libc6 libcairo2 \
 #    libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 \
