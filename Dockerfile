@@ -40,7 +40,7 @@ RUN apt-get install -y libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1
 
 RUN apt-get install -y libgbm-dev
 
-RUN apt-get install -y libexif
+RUN sed -i 's/exec -a "\$0" "\$HERE\/chrome" "\$@"/exec -a "\$0" "\$HERE\/chrome" "\$@"  --no-sandbox/g' /usr/bin/google-chrome
 
 
 # https://stackoverflow.com/questions/66403248/trying-to-yarn-add-a-private-github-repo-and-get-couldnt-find-the-binary-git
