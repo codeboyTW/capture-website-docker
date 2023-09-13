@@ -43,10 +43,15 @@ RUN apt install -y git
 
 RUN yarn global add https://github.com/timoschwarzer/capture-website-cli
 
-RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
-    && mkdir -p /home/pptruser/Downloads \
-    && chown -R pptruser:pptruser /home/pptruser \
-    && chown -R pptruser:pptruser /usr/local/share/.config/yarn/global
+#RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
+#    && mkdir -p /home/pptruser/Downloads \
+#    && chown -R pptruser:pptruser /home/pptruser \
+#    && chown -R pptruser:pptruser /usr/local/share/.config/yarn/global
+
+RUN  mkdir -p /home/pptruser/Downloads \
+#    && chown -R pptruser:pptruser /home/pptruser \
+#    && chown -R pptruser:pptruser /usr/local/share/.config/yarn/global
+
 
 USER pptruser
 
